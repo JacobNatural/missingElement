@@ -5,13 +5,16 @@ import java.util.Arrays;
 public class Missing {
 
     public static int findMissing(int[] array){
-        int [] arrayCopy = new int[array.length];
-        arrayCopy = array;
-        Arrays.sort(arrayCopy);
 
-        for(int i = 0, j = arrayCopy[0]; i < arrayCopy.length; i++, j++){
-            if( j != arrayCopy[i] ){
+        Arrays.sort(array);
+
+        for(int i = 0, j = array[0], k = array.length -1, l = array[array.length - 1]; i < array.length; i++, j++, l--, k--){
+
+            if( j != array[i] ){
                 return j;
+            }
+            if(l != array[k]){
+                return  l;
             }
         }
         return 0;
